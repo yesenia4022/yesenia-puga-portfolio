@@ -13,6 +13,31 @@ body {
   background-color: #f9fafb;
 }
 
+/* Global headings */
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+/* Global content width for main sections & project pages */
+.page-hero {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 /* Layout helpers */
 main {
   min-height: 70vh;
@@ -183,7 +208,7 @@ main {
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.01);
   box-shadow: 0 18px 30px rgba(15, 23, 42, 0.16);
   border-color: #cbd5f5;
 }
@@ -315,6 +340,62 @@ main {
   font-size: 0.85rem;
 }
 
+/* Project page hero + tagline */
+.project-page {
+  padding: 2.5rem 4% 3rem;
+}
+
+.project-hero {
+  margin-bottom: 1.5rem;
+}
+
+.project-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.project-tagline {
+  max-width: 40rem;
+  color: #4b5563;
+  font-size: 1rem;
+}
+
+/* Project Snapshot panel */
+.project-snapshot {
+  margin: 0 4% 2.5rem;
+  max-width: 1100px;
+  background: #111827;
+  color: #f9fafb;
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.35);
+}
+
+.project-snapshot h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.75rem;
+  color: #e5e7eb;
+}
+
+.project-snapshot ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1.5rem;
+}
+
+.project-snapshot li {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.project-snapshot strong {
+  font-weight: 600;
+  color: #fde68a; /* warm highlight for labels */
+}
+
 /* Project layout */
 .project-layout {
   display: grid;
@@ -437,7 +518,6 @@ main {
   height: auto;
   min-height: 0;
 }
-
 
 /* Blog */
 .blog-list {
@@ -688,6 +768,12 @@ main {
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Snapshot card stays centered nicely */
+  .project-snapshot {
+    margin-left: 4%;
+    margin-right: 4%;
+  }
 }
 
 /* Phone sizes (≤ 600px) */
@@ -754,5 +840,15 @@ main {
   .footer-center {
     flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  /* Snapshot: single column list on phones */
+  .project-snapshot {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+  .project-snapshot ul {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
