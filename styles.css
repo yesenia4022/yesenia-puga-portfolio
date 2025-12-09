@@ -32,11 +32,6 @@ h3 {
   font-size: 1.1rem;
 }
 
-/* Global content width for main sections & project pages */
-.page-hero {
-  max-width: 1100px;
-  margin: 0 auto;
-}
 
 /* Layout helpers */
 main {
@@ -196,9 +191,9 @@ main {
   opacity: 0.95;
 }
 
-/* Page hero */
+/* Page hero (top band on Projects, About, Blog, Contact) */
 .page-hero {
-  padding: 2.5rem 4% 1.5rem;
+  padding: 2.5rem 4% 1.5rem;  /* same 4% side padding as .section */
 }
 
 .page-hero.small h1 {
@@ -211,19 +206,25 @@ main {
   color: #4b5563;
 }
 
-/* Project hero (used on project pages + About) */
+/* Project page hero + tagline (used on project detail pages) */
+.project-page {
+  padding: 2.5rem 4% 3rem;
+}
+
 .project-hero {
-  padding: 2.5rem 4% 1.5rem;
+  padding: 0 0 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .project-hero h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
 }
 
-.project-hero .project-tagline {
+.project-tagline {
   max-width: 40rem;
   color: #4b5563;
+  font-size: 1rem;
 }
 
 /* Sections */
@@ -387,26 +388,6 @@ main {
   border-radius: 999px;
   background-color: #e5e7eb;
   font-size: 0.85rem;
-}
-
-/* Project page hero + tagline */
-.project-page {
-  padding: 2.5rem 4% 3rem;
-}
-
-.project-hero {
-  margin-bottom: 1.5rem;
-}
-
-.project-hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.4rem;
-}
-
-.project-tagline {
-  max-width: 40rem;
-  color: #4b5563;
-  font-size: 1rem;
 }
 
 /* Project Snapshot panel */
@@ -602,6 +583,7 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   gap: 2rem;
+  align-items: flex-start;
 }
 
 .contact-form-wrapper h2 {
@@ -633,18 +615,33 @@ main {
   box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.4);
 }
 
+/* Right-hand contact info card */
+.contact-info {
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 1.5rem 1.75rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+}
+
 .contact-info h2 {
   margin-bottom: 0.5rem;
+  color: #f9fafb;
 }
 
 .contact-info h3 {
   margin-top: 1rem;
   margin-bottom: 0.35rem;
+  color: #f9fafb;
 }
 
 .contact-info p,
 .contact-info li {
-  color: #4b5563;
+  color: #e5e7eb;
+}
+
+.contact-info strong {
+  color: #facc15; /* accent for labels like "Location:" */
 }
 
 .contact-info ul {
@@ -657,18 +654,24 @@ main {
 }
 
 .contact-info a {
-  color: #1d4ed8;
+  color: #93c5fd;
   text-decoration: none;
   font-size: 0.95rem;
 }
 
-.map-placeholder {
-  margin-top: 1rem;
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Map inside the dark card */
+.contact-info .map-placeholder {
+  margin-top: 1.25rem;
   border-radius: 1rem;
-  overflow: hidden;     
+  overflow: hidden;
   border: none;
   padding: 0;
   background: transparent;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
 }
 
 /* Footer */
