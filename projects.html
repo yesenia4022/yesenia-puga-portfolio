@@ -26,70 +26,80 @@
   </header>
 
   <main>
-    <section class="page-hero small">
+    <!-- Hero -->
+    <section class="project-hero">
       <h1>Projects Gallery</h1>
-      <p>
-        A curated collection of embedded systems, robotics, and software projects
-        combining hardware, firmware, and practical problem-solving.
+      <p class="project-tagline">
+        Embedded systems, robots, and software tools that connect hardware, firmware,
+        and real-world problem-solving.
       </p>
     </section>
 
+    <!-- Embedded systems & robotics -->
     <section class="section">
       <header class="section-header">
-        <h2>Embedded Systems & Robotics</h2>
+        <h2>Embedded Systems &amp; Robotics</h2>
+        <p>
+          Multi-microcontroller robots and connected devices designed to operate in
+          messy, real-world environments.
+        </p>
       </header>
 
       <div class="card-grid">
         <a href="projects/project-hospital-robot.html" class="card card-link-wrapper">
+          <p class="card-tag">Robotics • ESP32 • FreeRTOS</p>
           <h3>Hospital Sanitation Robot</h3>
-          <p class="card-tag">Robotics • ESP32</p>
           <p>
-            An autonomous robot built with multiple ESP32 boards, a TCA9548A I2C
-            multiplexer, and thermal sensing to support hospital sanitation workflows.
+            Autonomous sanitation assistant built with multiple ESP32 boards,
+            a TCA9548A I2C multiplexer, thermal sensing, and ultrasonic distance
+            detection to support hospital cleaning workflows.
           </p>
+          <p class="card-link">View Project →</p>
+        </a>
+
+        <a href="projects/project-soil-moisture.html" class="card card-link-wrapper">
+          <p class="card-tag">BLE • ESP32 • iOS</p>
+          <h3>ESP32 Soil Moisture System</h3>
+          <p>
+            A smart plant monitor that reads soil moisture and battery voltage on an ESP32
+            and streams data to a custom SwiftUI iOS app over Bluetooth Low Energy.
+          </p>
+          <p class="card-link">View Project →</p>
         </a>
       </div>
     </section>
 
+    <!-- Research tools & image analysis -->
     <section class="section">
       <header class="section-header">
-        <h2>Tools & Research Projects</h2>
+        <h2>Research Tools &amp; Image Analysis</h2>
+        <p>
+          Python-based tools that speed up neuroscience workflows by turning raw images
+          into clean, quantitative data.
+        </p>
       </header>
 
       <div class="card-grid">
         <a href="projects/project-fine-tune.html" class="card card-link-wrapper">
-          <h3>Fine-Tune Cell Annotation Tool</h3>
           <p class="card-tag">Python • Computer Vision</p>
+          <h3>Fine-Tune Cell Annotation Tool</h3>
           <p>
-            Interactive annotation software that overlays model predictions and enables
-            precise refinement of bounding boxes for neuron detection.
+            Interactive Python application that overlays YOLOv8 predictions on tiled
+            brain images and lets researchers refine bounding boxes for retraining,
+            closing the loop between users and the model.
           </p>
+          <p class="card-link">View Project →</p>
         </a>
 
         <a href="projects/project-neurite-tracing.html" class="card card-link-wrapper">
-          <h3>Neurite Tracing Tool</h3>
           <p class="card-tag">Python • Image Processing</p>
+          <h3>Neurite Tracing Tool</h3>
           <p>
-            Early-stage imaging tool designed to trace and measure neurites in
-            microscopy data, supporting neuroscience research workflows.
+            Early-stage image analysis tool that quantifies CGRP-positive neurites in
+            bladder tissue, helping researchers compare sensory innervation across
+            age, sex, and hormone conditions.
           </p>
-        </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <header class="section-header">
-        <h2>Connected Devices & Apps</h2>
-      </header>
-
-      <div class="card-grid">
-        <a href="projects/project-soil-moisture.html" class="card card-link-wrapper">
-          <h3>ESP32 Soil Moisture Monitor</h3>
-          <p class="card-tag">BLE • iOS • Sensors</p>
-          <p>
-            A connected plant-monitoring device that sends live moisture status and
-            battery voltage from an ESP32 to a custom SwiftUI iOS application via BLE.
-          </p>
+          <p class="card-link">View Project →</p>
         </a>
       </div>
     </section>
