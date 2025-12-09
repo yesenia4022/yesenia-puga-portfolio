@@ -291,6 +291,7 @@ main {
   text-decoration: none;
   color: inherit;
   display: block;
+  cursor: pointer;
 }
 
 .card-link-wrapper:hover .card-link {
@@ -615,6 +616,10 @@ main {
   box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.4);
 }
 
+.contact-form button {
+  margin-top: 0.5rem;
+}
+
 /* Right-hand contact info card */
 .contact-info {
   background-color: #111827;
@@ -728,6 +733,10 @@ main {
   border-color: #e5e7eb;
 }
 
+.footer-center a:hover {
+  text-decoration: underline;
+}
+
 /* Contact Form – Checkbox Styling */
 .form-interests {
   margin-top: 1rem;
@@ -767,6 +776,14 @@ main {
 .section p + h2,
 .section ul + h2 {
   margin-top: 2rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #f97316; /* your accent orange */
+  outline-offset: 2px;
 }
 
 /* Responsive
