@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fine-Tune Cell Annotation Tool – Project – Yesenia Puga</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-mark">YP</span>
+      <span class="logo-text">Yesenia Puga</span>
+      <span class="logo-subtitle">Embedded Systems & Robotics</span>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../blog.html">News &amp; Blog</a></li>
+        <li><a href="../opportunities.html">Opportunities</a></li>
+        <li><a href="../contact.html" class="cta-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <!-- Page intro -->
+    <section class="page-hero small">
+      <h1>Fine-Tune Cell Annotation Tool</h1>
+      <p>
+        An interactive Python tool that lets researchers correct model-generated neuron
+        detections in real time and export clean annotations for retraining.
+      </p>
+    </section>
+
+    <!-- Main layout -->
+    <section class="section project-layout">
+      <div class="project-main">
+        <h2>Project Description</h2>
+        <p>
+          The Fine-Tune Cell Annotation Tool is a desktop application built in Python to help
+          neuroscience labs review and correct model-generated cell detections in Bell Jar,
+          a neurohistological image analysis platform in the Kim Lab. Automated YOLOv8
+          detections are loaded on top of tiled brain images, and users can directly
+          edit bounding boxes before saving corrected labels for model retraining.
+        </p>
+        <p>
+          This project addresses a common problem in computer vision workflows: models
+          are good but not perfect, and fully manual annotation is too slow. Fine-Tune
+          creates a feedback loop where user corrections make the model better over time.
+        </p>
+
+        <h2>Goals</h2>
+        <ul>
+          <li>Speed up the process of reviewing cell detection predictions.</li>
+          <li>Make it easy for researchers to add, move, and delete bounding boxes.</li>
+          <li>Keep all interaction inside a simple, single-window Python GUI.</li>
+          <li>Export YOLO-format annotations that can be used directly for model fine-tuning.</li>
+        </ul>
+
+        <h2>Methodology</h2>
+        <p>The workflow follows the pipeline from my research poster:</p>
+        <ol>
+          <li><strong>Input image loading:</strong> large microscopy images are loaded into the tool.</li>
+          <li><strong>Tiling:</strong> images are split into 640×640 tiles for smooth viewing and editing.</li>
+          <li><strong>Model prediction:</strong> a YOLOv8 model predicts neuron locations on each tile.</li>
+          <li><strong>User annotation:</strong> users add, adjust, or delete bounding boxes with live updates.</li>
+          <li><strong>Saving annotations:</strong> images are saved to an <code>images/</code> folder and labels to a matching <code>labels/</code> folder.</li>
+          <li><strong>Retraining:</strong> the cleaned annotations are used to fine-tune the detection model.</li>
+        </ol>
+
+        <h2>Results</h2>
+        <p>
+          Before-and-after comparisons from the poster show that the model performs better
+          after being retrained with user-corrected labels: fewer false positives, fewer
+          missed neurons, and more reliable detections across tiles. The tool also
+          reduces the amount of fully manual annotation time needed for each dataset.
+        </p>
+
+        <h2>Future Directions</h2>
+        <ul>
+          <li>Integrate the Fine-Tune workflow directly into the main Bell Jar application.</li>
+          <li>Improve model behavior so it does not miss detections at standard confidence thresholds.</li>
+          <li>Fix fullscreen and window-closing bugs to make the app more robust for long sessions.</li>
+          <li>Add more options for tile management and custom slicing sizes.</li>
+        </ul>
+
+        <h2>Tools Used</h2>
+        <ul class="pill-list">
+          <li>Python</li>
+          <li>PyQt GUI Toolkit</li>
+          <li>OpenCV</li>
+          <li>YOLOv8</li>
+          <li>Machine Learning</li>
+        </ul>
+
+        <h2>Outcomes</h2>
+        <p>
+          This project produced a complete annotation and feedback pipeline that turns
+          manual edits into structured training data. It also gave me experience with GUI
+          design, image tiling, bounding box logic, and integrating model retraining into
+          a research workflow.
+        </p>
+      </div>
+
+      <aside class="project-sidebar">
+        <div class="image-placeholder no-border">
+          <img
+            src="../images/fine-tune-ui.png"
+            alt="Fine-Tune Cell Annotation Tool user interface"
+            class="sidebar-image-large"
+          >
+        </div>
+
+        <a
+          href="../posters/fine-tune-poster.pdf"
+          class="poster-link"
+          target="_blank"
+        >
+          <img
+            src="../images/fine-tune-poster-thumb.png"
+            alt="Fine-Tune Cell Annotation Tool research poster"
+            class="poster-image"
+          >
+        </a>
+
+        <a href="../projects.html" class="btn secondary full-width">
+          Back to Projects
+        </a>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p>&copy; 2025 Yesenia Puga. All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../../contact.html">Contact</a>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/yesenia-puga-8b6a98166" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="LinkedIn">
+        <img src="../images/icon-linkedin.png" alt="">
+      </a>
+
+      <a href="https://github.com/yesenia4022" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="GitHub">
+        <img src="../images/icon-github.png" alt="">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>

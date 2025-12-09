@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>News &amp; Blog – Yesenia Puga</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-mark">YP</span>
+      <span class="logo-text">Yesenia Puga</span>
+      <span class="logo-subtitle">Embedded Systems & Robotics</span>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html" class="active">News &amp; Blog</a></li>
+        <li><a href="opportunities.html">Opportunities</a></li>
+        <li><a href="contact.html" class="cta-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero small">
+      <h1>News &amp; Blog</h1>
+      <p>
+        Updates and reflections on projects, process, and lessons learned in
+        embedded systems and robotics.
+      </p>
+    </section>
+
+    <section class="section blog-list">
+      <article class="blog-post">
+        <h2>Building a Multi-ESP32 Robotics Platform</h2>
+        <p class="blog-meta">Project Process • Robotics</p>
+        <p>
+          This post breaks down how a complex robotics project was split into
+          smaller embedded tasks, each handled by its own ESP32. From wiring
+          the TCA9548A I2C switch to validating each state in the controller,
+          the robot highlights practical strategies for debugging under
+          real-world constraints.
+        </p>
+      </article>
+
+      <article class="blog-post">
+        <h2>Connecting an ESP32 to an iOS App with BLE</h2>
+        <p class="blog-meta">Project Notes • Connected Devices</p>
+        <p>
+          A soil moisture monitor was built to send live sensor and battery
+          data to a SwiftUI application. The write-up focuses on defining BLE
+          services and characteristics, configuring notifications, and
+          designing a simple interface that clearly communicates plant health
+          to the user.
+        </p>
+      </article>
+
+      <article class="blog-post">
+        <h2>Designing the Fine-Tune Cell Annotation Workflow</h2>
+        <p class="blog-meta">Research Tools • Computer Vision</p>
+        <p>
+          Fine-Tune is a Python-based annotation tool that overlays
+          model-generated predictions on neuroscience images and allows quick
+          adjustments with custom bounding boxes. This post describes the
+          workflow behind the tool, from loading tiled images to updating
+          predictions in real time, with a focus on making cell review faster
+          and more accurate for researchers.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p>&copy; 2025 Yesenia Puga. All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/yesenia-puga-8b6a98166" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="LinkedIn">
+        <img src="images/icon-linkedin.png" alt="">
+      </a>
+
+      <a href="https://github.com/yesenia4022" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="GitHub">
+        <img src="images/icon-github.png" alt="">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
