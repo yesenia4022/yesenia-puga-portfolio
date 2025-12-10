@@ -32,11 +32,6 @@ h3 {
   font-size: 1.1rem;
 }
 
-/* Global content width for main sections & project pages */
-.page-hero {
-  max-width: 1100px;
-  margin: 0 auto;
-}
 
 /* Layout helpers */
 main {
@@ -119,8 +114,9 @@ main {
   gap: 2rem;
   padding: 3rem 4%;
   align-items: center;
-  background: radial-gradient(circle at top left, #fef3c7 0, transparent 55%),
-              radial-gradient(circle at bottom right, #dbeafe 0, transparent 50%);
+
+  /* Simple vertical fade from warm at top to page background at bottom */
+  background: linear-gradient(to bottom, #fff7e6 0%, #f9fafb 100%);
 }
 
 .hero-content h1 {
@@ -196,9 +192,10 @@ main {
   opacity: 0.95;
 }
 
-/* Page hero */
+/* Page hero (top band on Projects, About, Blog, Contact) */
 .page-hero {
-  padding: 2.5rem 4% 1.5rem;
+  padding: 2.5rem 4% 1.5rem;  /* same 4% side padding as .section */
+  background-color: #f9fafb;  /* solid background, no gradient */
 }
 
 .page-hero.small h1 {
@@ -211,19 +208,25 @@ main {
   color: #4b5563;
 }
 
-/* Project hero (used on project pages + About) */
+/* Project page hero + tagline (used on project detail pages) */
+.project-page {
+  padding: 2.5rem 4% 3rem;
+}
+
 .project-hero {
-  padding: 2.5rem 4% 1.5rem;
+  padding: 0 0 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .project-hero h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
 }
 
-.project-hero .project-tagline {
+.project-tagline {
   max-width: 40rem;
   color: #4b5563;
+  font-size: 1rem;
 }
 
 /* Sections */
@@ -290,6 +293,7 @@ main {
   text-decoration: none;
   color: inherit;
   display: block;
+  cursor: pointer;
 }
 
 .card-link-wrapper:hover .card-link {
@@ -387,26 +391,6 @@ main {
   border-radius: 999px;
   background-color: #e5e7eb;
   font-size: 0.85rem;
-}
-
-/* Project page hero + tagline */
-.project-page {
-  padding: 2.5rem 4% 3rem;
-}
-
-.project-hero {
-  margin-bottom: 1.5rem;
-}
-
-.project-hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 0.4rem;
-}
-
-.project-tagline {
-  max-width: 40rem;
-  color: #4b5563;
-  font-size: 1rem;
 }
 
 /* Project Snapshot panel */
@@ -579,6 +563,7 @@ main {
   padding: 1.25rem;
   border-radius: 1rem;
   border: 1px solid #e5e7eb;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .blog-post h2 {
@@ -597,11 +582,18 @@ main {
   color: #4b5563;
 }
 
+.blog-post:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.16);
+  border-color: #cbd5f5;
+}
+
 /* Contact */
 .contact-layout {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   gap: 2rem;
+  align-items: flex-start;
 }
 
 .contact-form-wrapper h2 {
@@ -633,18 +625,37 @@ main {
   box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.4);
 }
 
+.contact-form button {
+  margin-top: 0.5rem;
+}
+
+/* Right-hand contact info card */
+.contact-info {
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 1.5rem 1.75rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+}
+
 .contact-info h2 {
   margin-bottom: 0.5rem;
+  color: #f9fafb;
 }
 
 .contact-info h3 {
   margin-top: 1rem;
   margin-bottom: 0.35rem;
+  color: #f9fafb;
 }
 
 .contact-info p,
 .contact-info li {
-  color: #4b5563;
+  color: #e5e7eb;
+}
+
+.contact-info strong {
+  color: #facc15; /* accent for labels like "Location:" */
 }
 
 .contact-info ul {
@@ -657,18 +668,24 @@ main {
 }
 
 .contact-info a {
-  color: #1d4ed8;
+  color: #93c5fd;
   text-decoration: none;
   font-size: 0.95rem;
 }
 
-.map-placeholder {
-  margin-top: 1rem;
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Map inside the dark card */
+.contact-info .map-placeholder {
+  margin-top: 1.25rem;
   border-radius: 1rem;
-  overflow: hidden;     
+  overflow: hidden;
   border: none;
   padding: 0;
   background: transparent;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
 }
 
 /* Footer */
@@ -725,6 +742,10 @@ main {
   border-color: #e5e7eb;
 }
 
+.footer-center a:hover {
+  text-decoration: underline;
+}
+
 /* Contact Form – Checkbox Styling */
 .form-interests {
   margin-top: 1rem;
@@ -764,6 +785,14 @@ main {
 .section p + h2,
 .section ul + h2 {
   margin-top: 2rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #f97316; /* your accent orange */
+  outline-offset: 2px;
 }
 
 /* Responsive
@@ -823,6 +852,32 @@ main {
     margin-left: 4%;
     margin-right: 4%;
   }
+
+  .success-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+  .success-card h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .success-card p {
+    color: #4b5563;
+    margin-bottom: 1rem;
+  }
+
+  .success-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
 }
 
 /* Phone sizes (≤ 600px) */

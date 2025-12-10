@@ -42,39 +42,51 @@
           Open to roles and collaborations in embedded systems, robotics, and tools 
           that support research or education.
         </p>
-        <form class="contact-form" action="#" method="post">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required>
+        <form
+        class="contact-form"
+        action="https://formspree.io/f/mvgewpwn"
+        method="post"
+      >
+        <!-- Tell Formspree where to send people after success -->
+        <input
+          type="hidden"
+          name="_redirect"
+          value="https://yesenia4022.github.io/yesenia-portfolio/contact-success.html"
+        >
 
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
 
-          <label for="subject">Subject</label>
-          <input id="subject" name="subject" type="text">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text">
 
-          <fieldset class="form-interests">
-            <legend>How can I help?</legend>
-            <label>
-              <input type="checkbox" name="reason" value="project">
-              Project inquiry or collaboration
-            </label>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
-            <label>
-              <input type="checkbox" name="reason" value="opportunity">
-              Job or internship opportunity
-            </label>
+        <fieldset class="form-interests">
+          <legend>How can I help?</legend>
+          <label>
+            <input type="checkbox" name="reason" value="project">
+            Project inquiry or collaboration
+          </label>
 
-            <label>
-              <input type="checkbox" name="reason" value="general-question">
-              General questions or requests
-            </label>
-          </fieldset>
+          <label>
+            <input type="checkbox" name="reason" value="opportunity">
+            Job or internship opportunity
+          </label>
 
-          <button type="submit" class="btn primary">Send Message</button>
-        </form>
+          <label>
+            <input type="checkbox" name="reason" value="general-question">
+            General questions or requests
+          </label>
+        </fieldset>
+
+        <button type="submit" class="btn primary">Send Message</button>
+      </form>
+
       </div>
 
       <aside class="contact-info">

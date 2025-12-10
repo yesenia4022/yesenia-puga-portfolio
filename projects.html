@@ -26,80 +26,94 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="project-hero">
+    <!-- Top hero band -->
+    <section class="page-hero small">
       <h1>Projects Gallery</h1>
-      <p class="project-tagline">
-        Embedded systems, robots, and software tools that connect hardware, firmware,
-        and real-world problem-solving.
+      <p>
+        Embedded systems, robots, and software tools that connect hardware, firmware, and
+        real-world problem-solving.
       </p>
     </section>
 
-    <!-- Embedded systems & robotics -->
+    <!-- Embedded Systems & Robotics -->
     <section class="section">
-      <header class="section-header">
+      <div class="section-header">
         <h2>Embedded Systems &amp; Robotics</h2>
         <p>
-          Multi-microcontroller robots and connected devices designed to operate in
-          messy, real-world environments.
+          Multi-microcontroller robots and connected devices designed to operate
+          in messy, real-world environments.
         </p>
-      </header>
+      </div>
 
       <div class="card-grid">
-        <a href="projects/project-hospital-robot.html" class="card card-link-wrapper">
-          <p class="card-tag">Robotics • ESP32 • FreeRTOS</p>
-          <h3>Hospital Sanitation Robot</h3>
-          <p>
-            Autonomous sanitation assistant built with multiple ESP32 boards,
-            a TCA9548A I2C multiplexer, thermal sensing, and ultrasonic distance
-            detection to support hospital cleaning workflows.
-          </p>
-          <p class="card-link">View Project →</p>
+        <!-- Card 1 -->
+        <a class="card-link-wrapper" href="projects/project-hospital-robot.html">
+          <article class="card">
+            <div class="card-tag">Robotics • ESP32 • FreeRTOS</div>
+            <h3>Hospital Sanitation Robot</h3>
+            <p>
+              Autonomous sanitation assistant built with multiple ESP32 boards, a TCA9548A I2C
+              multiplexer, thermal sensing, and ultrasonic distance detection to support
+              hospital cleaning workflows.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
 
-        <a href="projects/project-soil-moisture.html" class="card card-link-wrapper">
-          <p class="card-tag">BLE • ESP32 • iOS</p>
-          <h3>ESP32 Soil Moisture System</h3>
-          <p>
-            A smart plant monitor that reads soil moisture and battery voltage on an ESP32
-            and streams data to a custom SwiftUI iOS app over Bluetooth Low Energy.
-          </p>
-          <p class="card-link">View Project →</p>
+        <!-- Card 2 -->
+        <a class="card-link-wrapper" href="projects/project-soil-moisture.html">
+          <article class="card">
+            <div class="card-tag">BLE • ESP32 • iOS</div>
+            <h3>ESP32 Soil Moisture System</h3>
+            <p>
+              A smart plant monitor that reads soil moisture and battery voltage on an ESP32
+              and streams data to a custom SwiftUI iOS app over Bluetooth Low Energy.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
+
+        <!-- Add any other embedded/robotics cards here -->
       </div>
     </section>
 
-    <!-- Research tools & image analysis -->
+    <!-- Research Tools & Image Analysis -->
     <section class="section">
-      <header class="section-header">
+      <div class="section-header">
         <h2>Research Tools &amp; Image Analysis</h2>
         <p>
           Python-based tools that speed up neuroscience workflows by turning raw images
           into clean, quantitative data.
         </p>
-      </header>
+      </div>
 
       <div class="card-grid">
-        <a href="projects/project-fine-tune.html" class="card card-link-wrapper">
-          <p class="card-tag">Python • Computer Vision</p>
-          <h3>Fine-Tune Cell Annotation Tool</h3>
-          <p>
-            Interactive Python application that overlays YOLOv8 predictions on tiled
-            brain images and lets researchers refine bounding boxes for retraining,
-            closing the loop between users and the model.
-          </p>
-          <p class="card-link">View Project →</p>
+        <!-- Fine-Tune Tool -->
+        <a class="card-link-wrapper" href="projects/project-fine-tune.html">
+          <article class="card">
+            <div class="card-tag">Python • Computer Vision</div>
+            <h3>Fine-Tune Cell Annotation Tool</h3>
+            <p>
+              Interactive Python application that overlays YOLOv8 predictions on tiled brain
+              images and lets researchers refine bounding boxes for retraining, closing the loop
+              between users and the model.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
 
-        <a href="projects/project-neurite-tracing.html" class="card card-link-wrapper">
-          <p class="card-tag">Python • Image Processing</p>
-          <h3>Neurite Tracing Tool</h3>
-          <p>
-            Early-stage image analysis tool that quantifies CGRP-positive neurites in
-            bladder tissue, helping researchers compare sensory innervation across
-            age, sex, and hormone conditions.
-          </p>
-          <p class="card-link">View Project →</p>
+        <!-- Neurite Tracing Tool -->
+        <a class="card-link-wrapper" href="projects/project-neurite-tracing.html">
+          <article class="card">
+            <div class="card-tag">Python • Image Processing</div>
+            <h3>Neurite Tracing Tool</h3>
+            <p>
+              Early-stage image analysis tool that quantifies CGRP-positive neurites in bladder
+              tissue, helping researchers compare sensory innervation across age, sex, and
+              hormone conditions.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
       </div>
     </section>
