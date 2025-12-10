@@ -114,8 +114,9 @@ main {
   gap: 2rem;
   padding: 3rem 4%;
   align-items: center;
-  background: radial-gradient(circle at top left, #fef3c7 0, transparent 55%),
-              radial-gradient(circle at bottom right, #dbeafe 0, transparent 50%);
+
+  /* Simple vertical fade from warm at top to page background at bottom */
+  background: linear-gradient(to bottom, #fff7e6 0%, #f9fafb 100%);
 }
 
 .hero-content h1 {
@@ -194,6 +195,7 @@ main {
 /* Page hero (top band on Projects, About, Blog, Contact) */
 .page-hero {
   padding: 2.5rem 4% 1.5rem;  /* same 4% side padding as .section */
+  background-color: #f9fafb;  /* solid background, no gradient */
 }
 
 .page-hero.small h1 {
@@ -561,6 +563,7 @@ main {
   padding: 1.25rem;
   border-radius: 1rem;
   border: 1px solid #e5e7eb;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .blog-post h2 {
@@ -577,6 +580,12 @@ main {
 
 .blog-post p {
   color: #4b5563;
+}
+
+.blog-post:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.16);
+  border-color: #cbd5f5;
 }
 
 /* Contact */
@@ -843,6 +852,32 @@ textarea:focus-visible {
     margin-left: 4%;
     margin-right: 4%;
   }
+
+  .success-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+  .success-card h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .success-card p {
+    color: #4b5563;
+    margin-bottom: 1rem;
+  }
+
+  .success-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
 }
 
 /* Phone sizes (≤ 600px) */
