@@ -971,6 +971,61 @@ textarea:focus-visible {
 
 }
 
+/* === Hero Typewriter / Terminal Style === */
+.hero-tagline {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+}
+
+.code-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: #111827; /* dark terminal-ish background */
+  color: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.code-prompt {
+  color: #22c55e; /* terminal green */
+  font-weight: 600;
+}
+
+#typewriter-text {
+  min-width: 7ch;      /* keeps pill from shrinking when text resets */
+  white-space: nowrap; /* keep it on one line */
+}
+
+.cursor {
+  font-size: 0.9rem;
+  animation: blink-cursor 0.9s steps(1) infinite;
+}
+
+/* cursor blink animation */
+@keyframes blink-cursor {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+/* optional: tighten the paragraph under the terminal line */
+.hero-subtext {
+  margin-top: 0.9rem;
+}
+
+/* small screens */
+@media (max-width: 600px) {
+  .hero-tagline {
+    font-size: 0.9rem;
+  }
+
+  .code-pill {
+    padding: 0.35rem 0.75rem;
+  }
+}
+
 /* Phone sizes (≤ 600px) */
 @media (max-width: 600px) {
   body {
