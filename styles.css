@@ -795,6 +795,97 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
+/* === Scroll to Top Button – ESP32 Chip Style === */
+.scroll-top-btn {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, transform 0.15s ease-out;
+    z-index: 999;
+}
+
+/* little chip sitting inside the circular button */
+.scroll-top-btn .chip-icon {
+    position: relative;
+    margin: 0 auto;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 0.45rem;
+    background: #45524c; /* dark green to match your theme */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+/* chip pins (top & bottom) */
+.scroll-top-btn .chip-icon::before,
+.scroll-top-btn .chip-icon::after {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    right: 0.25rem;
+    height: 0.18rem;
+    border-radius: 999px;
+    background: repeating-linear-gradient(
+        to right,
+        #222 0,
+        #222 0.18rem,
+        transparent 0.18rem,
+        transparent 0.3rem
+    );
+}
+
+.scroll-top-btn .chip-icon::before {
+    top: -0.16rem;
+}
+
+.scroll-top-btn .chip-icon::after {
+    bottom: -0.16rem;
+}
+
+/* ESP text + tiny up-arrow */
+.scroll-top-btn .chip-label {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.05rem;
+}
+
+.scroll-top-btn .chip-label::after {
+    content: "↑";
+    font-size: 0.85rem;
+}
+
+/* show/hide controlled by JS */
+.scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* hover micro-interaction */
+.scroll-top-btn:hover .chip-icon {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+
 /* Responsive
    --------------------------------------------------*/
 
