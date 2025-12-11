@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Projects – Yesenia Puga</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- AOS styles for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 <body>
   <header class="site-header">
@@ -27,7 +30,7 @@
 
   <main>
     <!-- Top hero band -->
-    <section class="page-hero small">
+    <section class="page-hero small" data-aos="fade-down" data-aos-duration="800">
       <h1>Projects Gallery</h1>
       <p>
         Embedded systems, robots, and software tools that connect hardware, firmware, and
@@ -37,7 +40,7 @@
 
     <!-- Embedded Systems & Robotics -->
     <section class="section">
-      <div class="section-header">
+      <div class="section-header" data-aos="fade-up">
         <h2>Embedded Systems &amp; Robotics</h2>
         <p>
           Multi-microcontroller robots and connected devices designed to operate
@@ -47,7 +50,10 @@
 
       <div class="card-grid">
         <!-- Card 1 -->
-        <a class="card-link-wrapper" href="projects/project-hospital-robot.html">
+        <a class="card-link-wrapper"
+           href="projects/project-hospital-robot.html"
+           data-aos="fade-up"
+           data-aos-delay="0">
           <article class="card">
             <div class="card-tag">Robotics • ESP32 • FreeRTOS</div>
             <h3>Hospital Sanitation Robot</h3>
@@ -61,7 +67,10 @@
         </a>
 
         <!-- Card 2 -->
-        <a class="card-link-wrapper" href="projects/project-soil-moisture.html">
+        <a class="card-link-wrapper"
+           href="projects/project-soil-moisture.html"
+           data-aos="fade-up"
+           data-aos-delay="120">
           <article class="card">
             <div class="card-tag">BLE • ESP32 • iOS</div>
             <h3>ESP32 Soil Moisture System</h3>
@@ -73,13 +82,13 @@
           </article>
         </a>
 
-        <!-- Add any other embedded/robotics cards here -->
+        <!-- Add any other embedded/robotics cards here, just keep increasing the delay -->
       </div>
     </section>
 
     <!-- Research Tools & Image Analysis -->
     <section class="section">
-      <div class="section-header">
+      <div class="section-header" data-aos="fade-up">
         <h2>Research Tools &amp; Image Analysis</h2>
         <p>
           Python-based tools that speed up neuroscience workflows by turning raw images
@@ -89,7 +98,10 @@
 
       <div class="card-grid">
         <!-- Fine-Tune Tool -->
-        <a class="card-link-wrapper" href="projects/project-fine-tune.html">
+        <a class="card-link-wrapper"
+           href="projects/project-fine-tune.html"
+           data-aos="fade-up"
+           data-aos-delay="0">
           <article class="card">
             <div class="card-tag">Python • Computer Vision</div>
             <h3>Fine-Tune Cell Annotation Tool</h3>
@@ -103,7 +115,10 @@
         </a>
 
         <!-- Neurite Tracing Tool -->
-        <a class="card-link-wrapper" href="projects/project-neurite-tracing.html">
+        <a class="card-link-wrapper"
+           href="projects/project-neurite-tracing.html"
+           data-aos="fade-up"
+           data-aos-delay="120">
           <article class="card">
             <div class="card-tag">Python • Image Processing</div>
             <h3>Neurite Tracing Tool</h3>
@@ -146,5 +161,11 @@
       </a>
     </div>
   </footer>
+
+  <!-- AOS (scroll animations) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Your custom JS (already calling AOS.init in script.js) -->
+  <script src="script.js"></script>
 </body>
 </html>
