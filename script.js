@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Run once on load (for short pages) and on every scroll.
+    // Run once on load and on scroll.
     updateScrollButton();
     window.addEventListener("scroll", updateScrollButton);
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const textEl = document.getElementById("typewriter-text");
     const cursorEl = document.getElementById("typewriter-cursor");
 
-    // If we're not on the home page (no hero), just exit quietly
+    // not on the home page → nothing to do
     if (!textEl || !cursorEl) return;
 
     const phrases = [
@@ -61,10 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let charIndex = 0;
     let isDeleting = false;
 
-    const TYPING_SPEED = 80;     // ms per character when typing
-    const DELETING_SPEED = 45;   // ms per character when deleting
-    const PAUSE_AT_END = 1200;   // pause after finishing a word
-    const PAUSE_AT_START = 500;  // pause before starting next word
+    const TYPING_SPEED = 80;
+    const DELETING_SPEED = 45;
+    const PAUSE_AT_END = 1200;
+    const PAUSE_AT_START = 500;
 
     function tick() {
       const current = phrases[phraseIndex];
@@ -95,9 +95,35 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Tiny delay so it doesn't start *immediately* on load
+    // small delay so it doesn't start instantly on load
     setTimeout(tick, 600);
   }
 
   startTypewriter();
+
+  // ---- Dark Mode Toggle ----
+  const themeToggle = document.querySelector(".theme-toggle");
+
+  const savedTheme = localStorage.getItem("theme");
+
+  // Default: LIGHT mode unless user explicitly chose dark
+  let isDark = savedTheme === "dark";
+
+  function applyTheme() {
+    if (isDark) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }
+
+  applyTheme();
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      isDark = !isDark;
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      applyTheme();
+    });
+  }
 });

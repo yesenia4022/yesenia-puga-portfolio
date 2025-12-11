@@ -25,6 +25,15 @@
         <li><a href="opportunities.html">Opportunities</a></li>
         <li><a href="contact.html" class="cta-link">Contact</a></li>
       </ul>
+
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-toggle-track">
+          <span class="theme-icon theme-icon-sun">☀️</span>
+          <span class="theme-icon theme-icon-moon">🌙</span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
     </nav>
   </header>
 
@@ -74,44 +83,63 @@
     </section>
 
     <!-- Featured projects section animates on scroll -->
-    <section class="section" data-aos="fade-up">
-      <header class="section-header">
+    <section class="section">
+      <div class="section-header" data-aos="fade-up">
         <h2>Featured Projects</h2>
-        <p>A sample of embedded systems and robotics work.</p>
-      </header>
+        <p>
+          A sample of embedded systems and robotics work.
+        </p>
+      </div>
 
       <div class="card-grid">
-        <a href="projects/project-hospital-robot.html"
-           class="card card-link-wrapper"
-           data-aos="fade-up" data-aos-delay="0">
-          <p class="card-tag">Embedded Systems • Robotics</p>
-          <h3>Hospital Sanitation Robot</h3>
-          <p>
-            An autonomous robot built with multiple ESP32 microcontrollers, thermal sensing,
-            and ultrasonic distance detection for hospital sanitation support.
-          </p>
+        <!-- Card 1 -->
+        <a class="card-link-wrapper"
+          href="projects/project-hospital-robot.html"
+          data-aos="fade-up"
+          data-aos-delay="0">
+          <article class="card">
+            <div class="card-tag">Embedded Systems • Robotics</div>
+            <h3>Hospital Sanitation Robot</h3>
+            <p>
+              An autonomous robot built with multiple ESP32 microcontrollers,
+              thermal sensing, and ultrasonic distance detection for hospital
+              sanitation support.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
 
-        <a href="projects/project-fine-tune.html"
-           class="card card-link-wrapper"
-           data-aos="fade-up" data-aos-delay="100">
-          <p class="card-tag">Python • Computer Vision</p>
-          <h3>Fine-Tune Image Annotation Tool</h3>
-          <p>
-            A Python-based tool that lets researchers adjust model-generated cell detection
-            in real time using custom bounding boxes.
-          </p>
+        <!-- Card 2 -->
+        <a class="card-link-wrapper"
+          href="projects/project-fine-tune.html"
+          data-aos="fade-up"
+          data-aos-delay="120">
+          <article class="card">
+            <div class="card-tag">Python • Computer Vision</div>
+            <h3>Fine-Tune Image Annotation Tool</h3>
+            <p>
+              A Python-based tool that lets researchers adjust model-generated
+              cell detection in real time using custom bounding boxes.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
 
-        <a href="projects/project-soil-moisture.html"
-           class="card card-link-wrapper"
-           data-aos="fade-up" data-aos-delay="200">
-          <p class="card-tag">ESP32 • BLE • iOS</p>
-          <h3>ESP32 Soil Moisture System</h3>
-          <p>
-            A smart plant monitor that sends live moisture and battery data from an ESP32
-            to a custom SwiftUI iOS app using Bluetooth Low Energy.
-          </p>
+        <!-- Card 3 -->
+        <a class="card-link-wrapper"
+          href="projects/project-soil-moisture.html"
+          data-aos="fade-up"
+          data-aos-delay="240">
+          <article class="card">
+            <div class="card-tag">ESP32 • BLE • iOS</div>
+            <h3>ESP32 Soil Moisture System</h3>
+            <p>
+              A smart plant monitor that sends live moisture and battery data
+              from an ESP32 to a custom SwiftUI iOS app using Bluetooth Low
+              Energy.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
       </div>
     </section>

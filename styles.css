@@ -32,13 +32,15 @@ h3 {
   font-size: 1.1rem;
 }
 
-
 /* Layout helpers */
 main {
   min-height: 70vh;
 }
 
-/* Header & Nav */
+/* ===========================
+   Header, Nav, Theme Toggle
+   =========================== */
+
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -78,6 +80,11 @@ main {
   opacity: 0.8;
 }
 
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -107,15 +114,81 @@ main {
   border: 1px solid #f97316;
 }
 
-/* Hero */
+/* Theme toggle button in header */
+.theme-toggle {
+  margin-left: 1.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: #f7f7f7;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-icon {
+  font-size: 0.9rem;   /* bigger emoji icons */
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.theme-icon-sun {
+  color: #f97316;
+}
+
+.theme-icon-moon {
+  color: #0f172a;
+}
+
+/* thumb that slides */
+.theme-toggle-thumb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  left: 5px;  /* light mode position */
+  transition: transform 0.18s ease;
+}
+
+/* dark mode: move thumb to the right */
+body.dark-mode .theme-toggle-thumb {
+  transform: translateX(24px);
+}
+
+body.dark-mode .theme-icon-sun {
+  opacity: 0.4;
+}
+
+body.dark-mode .theme-icon-moon {
+  opacity: 1;
+}
+
+.theme-toggle:hover .theme-toggle-track {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+/* ===========================
+   Hero
+   =========================== */
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
   gap: 2rem;
   padding: 3rem 4%;
   align-items: center;
-
-  /* Simple vertical fade from warm at top to page background at bottom */
   background: linear-gradient(to bottom, #fff7e6 0%, #f9fafb 100%);
 }
 
@@ -165,13 +238,13 @@ main {
   align-items: center;
   padding: 0.15rem 0.7rem;
   border-radius: 999px;
-  background: #fed7aa;              /* slightly richer peach */
-  color: #9a3412;                   /* darker orange-brown text */
+  background: #fed7aa;
+  color: #9a3412;
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.85rem;
-  border: 1px solid rgba(0, 0, 0, 0.04);  /* gives the pill a clear edge */
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .hero-tags {
@@ -194,8 +267,8 @@ main {
 
 /* Page hero (top band on Projects, About, Blog, Contact) */
 .page-hero {
-  padding: 2.5rem 4% 1.5rem;  /* same 4% side padding as .section */
-  background-color: #f9fafb;  /* solid background, no gradient */
+  padding: 2.5rem 4% 1.5rem;
+  background-color: #f9fafb;
 }
 
 .page-hero.small h1 {
@@ -208,7 +281,7 @@ main {
   color: #4b5563;
 }
 
-/* Project page hero + tagline (used on project detail pages) */
+/* Project page hero + tagline */
 .project-page {
   padding: 2.5rem 4% 3rem;
 }
@@ -243,26 +316,29 @@ main {
   margin-bottom: 0.25rem;
 }
 
-/* Cards & grids */
+/* ===========================
+   Cards & Grids (Home + Projects + Blog)
+   =========================== */
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.5rem;
 }
 
-.card {
+/* unified base card style */
+.card,
+.blog-post {
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 1.25rem;
+  border: 2px solid #e5e7eb;
   box-shadow: 0 10px 15px rgba(15, 23, 42, 0.06);
-  border: 1px solid #e5e7eb;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.16);
-  border-color: #cbd5f5;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease;
 }
 
 .card h3 {
@@ -300,7 +376,18 @@ main {
   text-decoration: underline;
 }
 
-/* Quick links */
+/* light-mode hover */
+.card:hover,
+.blog-post:hover {
+  transform: translateY(-4px) scale(1.01) !important; /* override AOS inline transform */
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.16);
+  border-color: #cbd5f5;
+}
+
+/* ===========================
+   Quick Links
+   =========================== */
+
 .quick-links .quick-link-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -330,7 +417,10 @@ main {
   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.35);
 }
 
-/* Buttons */
+/* ===========================
+   Buttons
+   =========================== */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -377,7 +467,10 @@ main {
   width: 100%;
 }
 
-/* Pills */
+/* ===========================
+   Pills
+   =========================== */
+
 .pill-list {
   list-style: none;
   display: flex;
@@ -393,7 +486,10 @@ main {
   font-size: 0.85rem;
 }
 
-/* Project Snapshot panel */
+/* ===========================
+   Project Snapshot panel
+   =========================== */
+
 .project-snapshot {
   margin: 0 4% 2.5rem;
   max-width: 1100px;
@@ -426,10 +522,13 @@ main {
 
 .project-snapshot strong {
   font-weight: 600;
-  color: #fde68a; /* warm highlight for labels */
+  color: #fde68a;
 }
 
-/* Project layout */
+/* ===========================
+   Project layout
+   =========================== */
+
 .project-layout {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -498,13 +597,15 @@ main {
   padding: 0;
 }
 
-/* Optional hover effect */
 .poster-link:hover .poster-image {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.25);
 }
 
-/* About layout */
+/* ===========================
+   About layout
+   =========================== */
+
 .about-layout {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -534,7 +635,8 @@ main {
 }
 
 .about-sidebar .image-placeholder {
-  height: 260px;
+  height: auto;
+  min-height: 0;
 }
 
 .about-photo {
@@ -546,24 +648,13 @@ main {
   margin: 0 auto;
 }
 
-/* Make sure the placeholder box shrinks to fit the photo */
-.about-sidebar .image-placeholder {
-  height: auto;
-  min-height: 0;
-}
+/* ===========================
+   Blog
+   =========================== */
 
-/* Blog */
 .blog-list {
   display: grid;
   gap: 1.5rem;
-}
-
-.blog-post {
-  background-color: #ffffff;
-  padding: 1.25rem;
-  border-radius: 1rem;
-  border: 1px solid #e5e7eb;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .blog-post h2 {
@@ -582,13 +673,10 @@ main {
   color: #4b5563;
 }
 
-.blog-post:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.16);
-  border-color: #cbd5f5;
-}
+/* ===========================
+   Contact
+   =========================== */
 
-/* Contact */
 .contact-layout {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -655,7 +743,7 @@ main {
 }
 
 .contact-info strong {
-  color: #facc15; /* accent for labels like "Location:" */
+  color: #facc15;
 }
 
 .contact-info ul {
@@ -688,7 +776,10 @@ main {
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
 }
 
-/* Footer */
+/* ===========================
+   Footer
+   =========================== */
+
 .site-footer {
   margin-top: 2rem;
   padding: 1rem 4%;
@@ -746,7 +837,10 @@ main {
   text-decoration: underline;
 }
 
-/* Contact Form – Checkbox Styling */
+/* ===========================
+   Contact Form – Checkbox Styling
+   =========================== */
+
 .form-interests {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
@@ -772,7 +866,7 @@ main {
   margin-right: 0.5rem;
 }
 
-/* Section heading spacing (Opportunities, etc.) */
+/* Section heading spacing */
 .section h2 {
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
@@ -787,111 +881,281 @@ main {
   margin-top: 2rem;
 }
 
+/* Focus styles for accessibility */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #f97316; /* your accent orange */
+  outline: 2px solid #f97316;
   outline-offset: 2px;
 }
 
-/* === Scroll to Top Button – ESP32 Chip Style === */
+/* ===========================
+   Scroll to Top Button – ESP32 Chip
+   =========================== */
+
 .scroll-top-btn {
-    position: fixed;
-    right: 1.5rem;
-    bottom: 1.5rem;
-    width: 3rem;
-    height: 3rem;
-    padding: 0;
-    border-radius: 999px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease, transform 0.15s ease-out;
-    z-index: 999;
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
 }
 
 /* little chip sitting inside the circular button */
 .scroll-top-btn .chip-icon {
-    position: relative;
-    margin: 0 auto;
-    width: 2.3rem;
-    height: 2.3rem;
-    border-radius: 0.45rem;
-    background: #45524c; /* dark green to match your theme */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
+  position: relative;
+  margin: 0 auto;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 0.45rem;
+  background: #45524c;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
 
 /* chip pins (top & bottom) */
 .scroll-top-btn .chip-icon::before,
 .scroll-top-btn .chip-icon::after {
-    content: "";
-    position: absolute;
-    left: 0.25rem;
-    right: 0.25rem;
-    height: 0.18rem;
-    border-radius: 999px;
-    background: repeating-linear-gradient(
-        to right,
-        #222 0,
-        #222 0.18rem,
-        transparent 0.18rem,
-        transparent 0.3rem
-    );
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+  height: 0.18rem;
+  border-radius: 999px;
+  background: repeating-linear-gradient(
+    to right,
+    #222 0,
+    #222 0.18rem,
+    transparent 0.18rem,
+    transparent 0.3rem
+  );
 }
 
 .scroll-top-btn .chip-icon::before {
-    top: -0.16rem;
+  top: -0.16rem;
 }
 
 .scroll-top-btn .chip-icon::after {
-    bottom: -0.16rem;
+  bottom: -0.16rem;
 }
 
 /* ESP text + tiny up-arrow */
 .scroll-top-btn .chip-label {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.05rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05rem;
 }
 
 .scroll-top-btn .chip-label::after {
-    content: "↑";
-    font-size: 0.85rem;
+  content: "↑";
+  font-size: 0.85rem;
 }
 
 /* show/hide controlled by JS */
 .scroll-top-btn.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* hover micro-interaction */
 .scroll-top-btn:hover .chip-icon {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
 }
 
-/* Responsive
-   --------------------------------------------------*/
+/* ===========================
+   Dark Mode Palette Overrides
+   =========================== */
+
+body.dark-mode {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+/* header + footer */
+body.dark-mode .site-header {
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+body.dark-mode .site-footer {
+  background-color: #020617;
+  border-top: 1px solid #111827;
+  color: #9ca3af;
+}
+
+body.dark-mode .site-footer a {
+  color: #e5e7eb;
+}
+
+/* hero + sections */
+body.dark-mode .hero {
+  background: radial-gradient(circle at top left, #1f2937 0, #020617 55%);
+}
+
+body.dark-mode .section,
+body.dark-mode .page-hero,
+body.dark-mode .project-page {
+  background-color: #020617;
+}
+
+body.dark-mode .section-header p,
+body.dark-mode .page-hero p,
+body.dark-mode .project-tagline,
+body.dark-mode .about-main p,
+body.dark-mode .project-main p,
+body.dark-mode .project-main li {
+  color: #cbd5f5;
+}
+
+/* dark-mode cards: base + hover (same everywhere) */
+body.dark-mode .card,
+body.dark-mode .blog-post {
+  background-color: #020617;
+  border-color: #1f2937;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+}
+
+body.dark-mode .card h3,
+body.dark-mode .blog-post h2 {
+  color: #e5e7eb;
+}
+
+body.dark-mode .card-tag {
+  color: #f97316;
+}
+
+body.dark-mode .card p,
+body.dark-mode .blog-post p {
+  color: #cbd5f5;
+}
+
+body.dark-mode .card:hover,
+body.dark-mode .blog-post:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.9);
+  border-color: #38bdf8; /* or #f97316 if you want orange glow */
+}
+
+/* quick links in dark mode */
+body.dark-mode .quick-link-box {
+  background-color: #020617;
+  border: 1px solid #1f2937;
+}
+
+/* hero badge + pills */
+body.dark-mode .hero-badge {
+  background: rgba(15, 118, 110, 0.18);
+  color: #6ee7b7;
+}
+
+/* buttons */
+body.dark-mode .btn.primary {
+  background-color: #22c55e;
+  color: #020617;
+}
+
+body.dark-mode .btn.secondary {
+  background-color: #0f172a;
+  color: #e5e7eb;
+}
+
+body.dark-mode .btn.outline {
+  border-color: #64748b;
+  color: #e5e7eb;
+}
+
+/* tags, pills, skills */
+body.dark-mode .hero-tags li,
+body.dark-mode .pill-list li,
+body.dark-mode .contact-info {
+  background-color: #020617;
+  border-color: #1e293b;
+  color: #e5e7eb;
+}
+
+/* links in content */
+body.dark-mode a {
+  color: #7dd3fc;
+}
+
+/* ESP scroll-top chip tweak */
+body.dark-mode .scroll-top-btn .chip-icon {
+  background: #020617;
+}
+
+/* ===========================
+   Hero Typewriter / Terminal Style
+   =========================== */
+
+.hero-tagline {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+}
+
+.code-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.code-prompt {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+#typewriter-text {
+  min-width: 7ch;
+  white-space: nowrap;
+}
+
+.cursor {
+  font-size: 0.9rem;
+  animation: blink-cursor 0.9s steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+.hero-subtext {
+  margin-top: 0.9rem;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
 
 /* Tablet and down (≤ 900px) */
 @media (max-width: 900px) {
-  /* Header & nav */
   .site-header {
     flex-direction: column;
     align-items: flex-start;
@@ -904,7 +1168,6 @@ textarea:focus-visible {
     gap: 0.75rem;
   }
 
-  /* Hero layout */
   .hero {
     grid-template-columns: minmax(0, 1fr);
     padding-top: 2.5rem;
@@ -920,12 +1183,10 @@ textarea:focus-visible {
     justify-content: flex-start;
   }
 
-  /* Slightly smaller hero image on tablet/mobile */
   .hero-image {
     max-width: 260px;
   }
 
-  /* Project / about / contact two-column layouts */
   .project-layout,
   .about-layout,
   .contact-layout {
@@ -933,26 +1194,24 @@ textarea:focus-visible {
     gap: 2rem;
   }
 
-  /* Card grids – usually 2-up on tablets */
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Snapshot card stays centered nicely */
   .project-snapshot {
     margin-left: 4%;
     margin-right: 4%;
   }
 
   .success-card {
-  max-width: 640px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.75rem 1.5rem;
-  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
-  border: 1px solid #e5e7eb;
-}
+    max-width: 640px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e5e7eb;
+  }
 
   .success-card h2 {
     margin-bottom: 0.5rem;
@@ -969,54 +1228,6 @@ textarea:focus-visible {
     gap: 0.75rem;
   }
 
-}
-
-/* === Hero Typewriter / Terminal Style === */
-.hero-tagline {
-  margin-top: 0.75rem;
-  font-size: 1rem;
-}
-
-.code-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.9rem;
-  border-radius: 999px;
-  background: #111827; /* dark terminal-ish background */
-  color: #e5e7eb;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-.code-prompt {
-  color: #22c55e; /* terminal green */
-  font-weight: 600;
-}
-
-#typewriter-text {
-  min-width: 7ch;      /* keeps pill from shrinking when text resets */
-  white-space: nowrap; /* keep it on one line */
-}
-
-.cursor {
-  font-size: 0.9rem;
-  animation: blink-cursor 0.9s steps(1) infinite;
-}
-
-/* cursor blink animation */
-@keyframes blink-cursor {
-  0%, 50% { opacity: 1; }
-  50.01%, 100% { opacity: 0; }
-}
-
-/* optional: tighten the paragraph under the terminal line */
-.hero-subtext {
-  margin-top: 0.9rem;
-}
-
-/* small screens */
-@media (max-width: 600px) {
   .hero-tagline {
     font-size: 0.9rem;
   }
@@ -1044,13 +1255,11 @@ textarea:focus-visible {
     padding-right: 1.25rem;
   }
 
-  /* Nav text a bit smaller & can wrap */
   .main-nav ul {
     font-size: 0.9rem;
     gap: 0.5rem;
   }
 
-  /* Hero buttons stack on mobile */
   .hero-buttons {
     flex-direction: column;
     align-items: stretch;
@@ -1061,7 +1270,6 @@ textarea:focus-visible {
     text-align: center;
   }
 
-  /* All major two-column layouts become single-column */
   .project-layout,
   .about-layout,
   .contact-layout {
@@ -1074,12 +1282,10 @@ textarea:focus-visible {
     margin-top: 1.5rem;
   }
 
-  /* Card grids – 1 per row on phones */
   .card-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Footer stacks nicely */
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
@@ -1092,7 +1298,6 @@ textarea:focus-visible {
     gap: 0.5rem;
   }
 
-  /* Snapshot: single column list on phones */
   .project-snapshot {
     margin-left: 1.25rem;
     margin-right: 1.25rem;
