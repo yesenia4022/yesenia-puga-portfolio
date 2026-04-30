@@ -3,6 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact – Yesenia Puga</title>
+
+  <!-- 🔥 CRITICAL: instant dark mode styles -->
+  <style>
+    html.dark-mode,
+    html.dark-mode body {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    html.dark-mode .site-header {
+      background: #020617;
+    }
+
+    html.dark-mode .main-nav a.active {
+      background-color: #22c55e;
+      color: #052e16;
+    }
+  </style>
+
+  <!-- Apply saved theme BEFORE CSS loads -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+  
   <link rel="stylesheet" href="styles.css">
 
   <!-- AOS styles for scroll animations -->

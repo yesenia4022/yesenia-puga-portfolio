@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const docHeight = document.documentElement.scrollHeight;
       const winHeight = window.innerHeight;
 
-      // If the page is short, always show the button.
-      // Otherwise show it after a little bit of scrolling.
       if (docHeight <= winHeight + 40 || scrollY > 120) {
         scrollBtn.classList.add("visible");
       } else {
@@ -29,11 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Run once on load and on scroll.
     updateScrollButton();
     window.addEventListener("scroll", updateScrollButton);
 
-    // Smooth scroll to top on click
     scrollBtn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const textEl = document.getElementById("typewriter-text");
     const cursorEl = document.getElementById("typewriter-cursor");
 
-    // not on the home page → nothing to do
     if (!textEl || !cursorEl) return;
 
     const phrases = [
@@ -95,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // small delay so it doesn't start instantly on load
     setTimeout(tick, 600);
   }
 
@@ -104,26 +98,28 @@ document.addEventListener("DOMContentLoaded", function () {
   // ---- Dark Mode Toggle ----
   const themeToggle = document.querySelector(".theme-toggle");
 
-  const savedTheme = localStorage.getItem("theme");
-
-  // Default: LIGHT mode unless user explicitly chose dark
-  let isDark = savedTheme === "dark";
-
-  function applyTheme() {
-    if (isDark) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
+  function isDarkMode() {
+    return document.documentElement.classList.contains("dark-mode");
   }
 
-  applyTheme();
+  function applyTheme(theme) {
+    const shouldUseDark = theme === "dark";
+
+    document.documentElement.classList.toggle("dark-mode", shouldUseDark);
+    localStorage.setItem("theme", shouldUseDark ? "dark" : "light");
+  }
+
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark" || savedTheme === "light") {
+    applyTheme(savedTheme);
+  } else {
+    applyTheme("light");
+  }
 
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-      isDark = !isDark;
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-      applyTheme();
+      applyTheme(isDarkMode() ? "light" : "dark");
     });
   }
 });
