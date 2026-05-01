@@ -25,7 +25,7 @@
   <!-- FIX: Apply dark mode BEFORE page loads -->
   <script>
     (function () {
-      const savedTheme = localStorage.getItem("theme");
+      const savedTheme = sessionStorage.getItem("theme");
       if (savedTheme === "dark") {
         document.documentElement.classList.add("dark-mode");
       }

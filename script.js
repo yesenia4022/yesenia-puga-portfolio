@@ -106,10 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const shouldUseDark = theme === "dark";
 
     document.documentElement.classList.toggle("dark-mode", shouldUseDark);
-    localStorage.setItem("theme", shouldUseDark ? "dark" : "light");
+    sessionStorage.setItem("theme", shouldUseDark ? "dark" : "light");
   }
 
-  const savedTheme = localStorage.getItem("theme");
+  const savedTheme = sessionStorage.getItem("theme");
 
   if (savedTheme === "dark" || savedTheme === "light") {
     applyTheme(savedTheme);

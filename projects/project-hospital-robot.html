@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Hospital Sanitation Robot – Project – Yesenia Puga</title>
+
+  <script>
+    (function () {
+      const savedTheme = sessionStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
