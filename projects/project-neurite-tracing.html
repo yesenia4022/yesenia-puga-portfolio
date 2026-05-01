@@ -4,6 +4,25 @@
   <meta charset="UTF-8">
   <title>Neurite Tracing Tool – Project – Yesenia Puga</title>
 
+  <!-- 🔥 CRITICAL: instant dark mode styles -->
+  <style>
+    html.dark-mode,
+    html.dark-mode body {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    html.dark-mode .site-header {
+      background: #020617;
+    }
+
+    html.dark-mode .main-nav a.active {
+      background-color: #22c55e;
+      color: #052e16;
+    }
+  </style>
+
+  <!-- Apply saved theme BEFORE CSS loads -->
   <script>
     (function () {
       const savedTheme = sessionStorage.getItem("theme");
@@ -12,9 +31,13 @@
       }
     })();
   </script>
-  
+
   <link rel="stylesheet" href="../styles.css">
+
+  <!-- AOS styles for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
+
 <body>
   <header class="site-header">
     <div class="logo">
@@ -32,6 +55,15 @@
         <li><a href="../opportunities.html">Opportunities</a></li>
         <li><a href="../contact.html" class="cta-link">Contact</a></li>
       </ul>
+
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-toggle-track">
+          <span class="theme-icon theme-icon-sun">☀️</span>
+          <span class="theme-icon theme-icon-moon">🌙</span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
     </nav>
   </header>
 
@@ -237,5 +269,11 @@
       </a>
     </div>
   </footer>
+
+<!-- AOS (scroll animations) -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Your custom JS -->
+<script src="../script.js"></script>
 </body>
 </html>
