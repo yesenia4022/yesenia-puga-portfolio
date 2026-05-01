@@ -3,7 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Professional Opportunities – Yesenia Puga</title>
+
+  <!-- 🔥 CRITICAL: instant dark mode styles -->
+  <style>
+    html.dark-mode,
+    html.dark-mode body {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    html.dark-mode .site-header {
+      background: #020617;
+    }
+
+    html.dark-mode .main-nav a.active {
+      background-color: #22c55e;
+      color: #052e16;
+    }
+  </style>
+
+  <!-- Apply saved theme BEFORE CSS loads -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+  
   <link rel="stylesheet" href="styles.css">
+
+  <!-- AOS styles for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 <body>
   <header class="site-header">
@@ -22,11 +54,20 @@
         <li><a href="opportunities.html" class="active">Opportunities</a></li>
         <li><a href="contact.html" class="cta-link">Contact</a></li>
       </ul>
+
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-toggle-track">
+          <span class="theme-icon theme-icon-sun">☀️</span>
+          <span class="theme-icon theme-icon-moon">🌙</span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
     </nav>
   </header>
 
   <main>
-    <section class="page-hero small">
+    <section class="page-hero small" data-aos="fade-down" data-aos-duration="800">
       <h1>Professional Opportunities</h1>
       <p>
         Open to collaborations, internships, research roles, and projects related to
@@ -34,8 +75,8 @@
       </p>
     </section>
 
-    <section class="section">
-      <h2>For Employers & Collaborators</h2>
+    <section class="section" data-aos="fade-up" data-aos-duration="800">
+      <h2>For Employers &amp; Collaborators</h2>
       <p>
         Strong interest in roles involving embedded systems, microcontroller programming,
         robotics, and tools for healthcare or neuroscience. Enjoy working on
@@ -43,7 +84,7 @@
         solve real-world problems.
       </p>
 
-      <h2>Services & Collaboration</h2>
+      <h2>Services &amp; Collaboration</h2>
       <ul>
         <li>Embedded firmware development for ESP32 and related microcontrollers.</li>
         <li>Sensor integration and communication protocols (I2C, SPI, UART, BLE).</li>
@@ -52,7 +93,7 @@
         <li>Workshops or small group sessions on microcontroller fundamentals.</li>
       </ul>
 
-      <h2>Sponsorship & Support</h2>
+      <h2>Sponsorship &amp; Support</h2>
       <p>
         Embedded systems workshops are offered for students to gain hands-on experience.
         Support for hardware, development boards, or lab materials helps expand access to
@@ -91,5 +132,17 @@
       </a>
     </div>
   </footer>
+
+  <button class="scroll-top-btn" aria-label="Scroll to top">
+    <span class="chip-icon">
+      <span class="chip-label">ESP</span>
+    </span>
+  </button>
+
+  <!-- AOS (scroll animations) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Your custom JS (with AOS.init inside) -->
+  <script src="script.js"></script>
 </body>
 </html>

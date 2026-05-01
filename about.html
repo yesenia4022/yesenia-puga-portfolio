@@ -3,7 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>About – Yesenia Puga</title>
+
+  <!-- 🔥 CRITICAL: instant dark mode styles -->
+  <style>
+    html.dark-mode,
+    html.dark-mode body {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    html.dark-mode .site-header {
+      background: #020617;
+    }
+
+    html.dark-mode .main-nav a.active {
+      background-color: #22c55e;
+      color: #052e16;
+    }
+  </style>
+
+  <!-- Apply saved theme BEFORE CSS loads -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+  
   <link rel="stylesheet" href="styles.css">
+
+  <!-- AOS styles for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 <body>
   <header class="site-header">
@@ -22,12 +54,21 @@
         <li><a href="opportunities.html">Opportunities</a></li>
         <li><a href="contact.html" class="cta-link">Contact</a></li>
       </ul>
+
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-toggle-track">
+          <span class="theme-icon theme-icon-sun">☀️</span>
+          <span class="theme-icon theme-icon-moon">🌙</span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
     </nav>
   </header>
 
   <main>
     <!-- Top hero band -->
-    <section class="page-hero small">
+    <section class="page-hero small" data-aos="fade-down" data-aos-duration="800">
       <h1>About Me</h1>
       <p>
         Embedded systems engineer focused on hands-on hardware, robotics, and tools that
@@ -39,7 +80,7 @@
     <section class="section">
       <div class="about-layout">
         <!-- Left column: text -->
-        <div class="about-main">
+        <div class="about-main" data-aos="fade-right" data-aos-duration="900">
           <h2>Who I Am</h2>
           <p>
             Yesenia Puga, an embedded systems engineer dedicated to building devices that operate
@@ -54,8 +95,8 @@
             as Fine-Tune.
           </p>
 
-          <h2>Design Focus &amp; Motivation</h2>
-          <p>
+          <h2 data-aos="fade-up" data-aos-offset="200">Design Focus &amp; Motivation</h2>
+          <p data-aos="fade-up" data-aos-offset="200" data-aos-delay="80">
             Motivation comes from creating systems that help people directly—supporting hospital
             staff through robotics, improving research workflows with better analysis tools, and
             empowering new learners who interact with microcontrollers for the first time.
@@ -63,8 +104,8 @@
             testing, and producing solutions that are reliable, documented, and maintainable.
           </p>
 
-          <h2>Skills &amp; Strengths</h2>
-          <ul class="pill-list">
+          <h2 data-aos="fade-up" data-aos-offset="220">Skills &amp; Strengths</h2>
+          <ul class="pill-list" data-aos="fade-up" data-aos-offset="220" data-aos-delay="80">
             <li>Embedded Systems (ESP32, Arduino)</li>
             <li>C / C++ / Python / MicroPython</li>
             <li>I2C, SPI, UART, BLE communication</li>
@@ -76,7 +117,7 @@
         </div>
 
         <!-- Right column: image -->
-        <aside class="about-sidebar">
+        <aside class="about-sidebar" data-aos="fade-left" data-aos-duration="900">
           <div class="image-placeholder no-border">
             <img
               src="images/about-yesenia.jpg"
@@ -116,5 +157,17 @@
       </a>
     </div>
   </footer>
+
+  <button class="scroll-top-btn" aria-label="Scroll to top">
+    <span class="chip-icon">
+      <span class="chip-label">ESP</span>
+    </span>
+  </button>
+
+  <!-- AOS (scroll animations) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Your custom JS (AOS.init is in here) -->
+  <script src="script.js"></script>
 </body>
 </html>

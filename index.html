@@ -3,7 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Yesenia Puga – Embedded Systems Portfolio</title>
+
+  <!-- 🔥 CRITICAL: instant dark mode styles -->
+  <style>
+    html.dark-mode,
+    html.dark-mode body {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    html.dark-mode .site-header {
+      background: #020617;
+    }
+
+    html.dark-mode .main-nav a.active {
+      background-color: #22c55e;
+      color: #052e16;
+    }
+  </style>
+
+  <!-- FIX: Apply dark mode BEFORE page loads -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="styles.css">
+
+  <!-- AOS styles for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 <body>
   <header class="site-header">
@@ -22,17 +54,36 @@
         <li><a href="opportunities.html">Opportunities</a></li>
         <li><a href="contact.html" class="cta-link">Contact</a></li>
       </ul>
+
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-toggle-track">
+          <span class="theme-icon theme-icon-sun">☀️</span>
+          <span class="theme-icon theme-icon-moon">🌙</span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
+    <!-- Hero (optional: fades down on load) -->
+    <section class="hero" data-aos="fade-down" data-aos-duration="900">
       <div class="hero-content">
         <span class="hero-badge">Embedded Systems Engineer</span>
 
         <h1>Building Embedded Systems<br>That Solve Real Problems</h1>
 
-        <p>
+        <!-- NEW: terminal-style typewriter line -->
+        <p class="hero-tagline">
+          <span class="code-pill">
+            <span class="code-prompt">$</span>
+            <span id="typewriter-text"></span>
+            <span id="typewriter-cursor" class="cursor">▌</span>
+          </span>
+        </p>
+
+        <p class="hero-subtext">
           Design and build microcontroller-based systems, robots, and tools that connect
           hardware, software, and real-world needs.
         </p>
@@ -51,7 +102,7 @@
         </div>
       </div>
 
-      <div class="hero-media">
+      <div class="hero-media" data-aos="fade-left" data-aos-delay="150">
         <img
           src="images/hospital-robot-hero.png"
           alt="Autonomous hospital sanitation robot prototype on the lab bench"
@@ -60,56 +111,83 @@
       </div>
     </section>
 
+    <!-- Featured projects section animates on scroll -->
     <section class="section">
-      <header class="section-header">
+      <div class="section-header" data-aos="fade-up">
         <h2>Featured Projects</h2>
-        <p>A sample of embedded systems and robotics work.</p>
-      </header>
+        <p>
+          A sample of embedded systems and robotics work.
+        </p>
+      </div>
 
       <div class="card-grid">
-        <a href="projects/project-hospital-robot.html" class="card card-link-wrapper">
-          <p class="card-tag">Embedded Systems • Robotics</p>
-          <h3>Hospital Sanitation Robot</h3>
-          <p>
-            An autonomous robot built with multiple ESP32 microcontrollers, thermal sensing,
-            and ultrasonic distance detection for hospital sanitation support.
-          </p>
+        <!-- Card 1 -->
+        <a class="card-link-wrapper"
+          href="projects/project-hospital-robot.html"
+          data-aos="fade-up"
+          data-aos-delay="0">
+          <article class="card">
+            <div class="card-tag">Embedded Systems • Robotics</div>
+            <h3>Hospital Sanitation Robot</h3>
+            <p>
+              An autonomous robot built with multiple ESP32 microcontrollers,
+              thermal sensing, and ultrasonic distance detection for hospital
+              sanitation support.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
 
-        <a href="projects/project-fine-tune.html" class="card card-link-wrapper">
-          <p class="card-tag">Python • Computer Vision</p>
-          <h3>Fine-Tune Image Annotation Tool</h3>
-          <p>
-            A Python-based tool that lets researchers adjust model-generated cell detection
-            in real time using custom bounding boxes.
-          </p>
+        <!-- Card 2 -->
+        <a class="card-link-wrapper"
+          href="projects/project-fine-tune.html"
+          data-aos="fade-up"
+          data-aos-delay="120">
+          <article class="card">
+            <div class="card-tag">Python • Computer Vision</div>
+            <h3>Fine-Tune Image Annotation Tool</h3>
+            <p>
+              A Python-based tool that lets researchers adjust model-generated
+              cell detection in real time using custom bounding boxes.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
 
-        <a href="projects/project-soil-moisture.html" class="card card-link-wrapper">
-          <p class="card-tag">ESP32 • BLE • iOS</p>
-          <h3>ESP32 Soil Moisture System</h3>
-          <p>
-            A smart plant monitor that sends live moisture and battery data from an ESP32
-            to a custom SwiftUI iOS app using Bluetooth Low Energy.
-          </p>
+        <!-- Card 3 -->
+        <a class="card-link-wrapper"
+          href="projects/project-soil-moisture.html"
+          data-aos="fade-up"
+          data-aos-delay="240">
+          <article class="card">
+            <div class="card-tag">ESP32 • BLE • iOS</div>
+            <h3>ESP32 Soil Moisture System</h3>
+            <p>
+              A smart plant monitor that sends live moisture and battery data
+              from an ESP32 to a custom SwiftUI iOS app using Bluetooth Low
+              Energy.
+            </p>
+            <span class="card-link">View Project →</span>
+          </article>
         </a>
       </div>
     </section>
 
-    <section class="section quick-links">
+    <!-- Quick links also fade in slightly -->
+    <section class="section quick-links" data-aos="fade-up" data-aos-offset="120">
       <header class="section-header">
         <h2>Quick Links</h2>
       </header>
       <div class="quick-link-grid">
-        <a href="projects.html" class="quick-link-box">
+        <a href="projects.html" class="quick-link-box" data-aos="fade-up" data-aos-delay="0">
           <h3>Projects</h3>
           <p>View embedded systems, robotics, and software projects.</p>
         </a>
-        <a href="about.html" class="quick-link-box">
+        <a href="about.html" class="quick-link-box" data-aos="fade-up" data-aos-delay="80">
           <h3>About Me</h3>
           <p>Learn more about background, skills, and interests.</p>
         </a>
-        <a href="resume.pdf" class="quick-link-box">
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="quick-link-box" data-aos="fade-up" data-aos-delay="160">
           <h3>Resume</h3>
           <p>Download a PDF of the current resume.</p>
         </a>
@@ -144,5 +222,17 @@
       </a>
     </div>
   </footer>
+
+  <button class="scroll-top-btn" aria-label="Scroll to top">
+    <span class="chip-icon">
+      <span class="chip-label">ESP</span>
+    </span>
+  </button>
+
+  <!-- AOS (scroll animations) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Your custom JS -->
+  <script src="script.js"></script>
 </body>
 </html>

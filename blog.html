@@ -3,7 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>News &amp; Blog – Yesenia Puga</title>
+
+  <!-- 🔥 CRITICAL: instant dark mode styles -->
+  <style>
+    html.dark-mode,
+    html.dark-mode body {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    html.dark-mode .site-header {
+      background: #020617;
+    }
+
+    html.dark-mode .main-nav a.active {
+      background-color: #22c55e;
+      color: #052e16;
+    }
+  </style>
+
+  <!-- Apply saved theme BEFORE CSS loads -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+  
   <link rel="stylesheet" href="styles.css">
+
+  <!-- AOS styles for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
 <body>
   <header class="site-header">
@@ -22,11 +54,20 @@
         <li><a href="opportunities.html">Opportunities</a></li>
         <li><a href="contact.html" class="cta-link">Contact</a></li>
       </ul>
+
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-toggle-track">
+          <span class="theme-icon theme-icon-sun">☀️</span>
+          <span class="theme-icon theme-icon-moon">🌙</span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
     </nav>
   </header>
 
   <main>
-    <section class="page-hero small">
+    <section class="page-hero small" data-aos="fade-down" data-aos-duration="800">
       <h1>News &amp; Blog</h1>
       <p>
         Updates and reflections on projects, process, and lessons learned in
@@ -35,7 +76,7 @@
     </section>
 
     <section class="section blog-list">
-      <article class="blog-post">
+      <article class="blog-post" data-aos="fade-up" data-aos-duration="800">
         <h2>Building a Multi-ESP32 Robotics Platform</h2>
         <p class="blog-meta">Project Process • Robotics</p>
         <p>
@@ -47,7 +88,7 @@
         </p>
       </article>
 
-      <article class="blog-post">
+      <article class="blog-post" data-aos="fade-up" data-aos-duration="800" data-aos-delay="80">
         <h2>Connecting an ESP32 to an iOS App with BLE</h2>
         <p class="blog-meta">Project Notes • Connected Devices</p>
         <p>
@@ -59,7 +100,7 @@
         </p>
       </article>
 
-      <article class="blog-post">
+      <article class="blog-post" data-aos="fade-up" data-aos-duration="800" data-aos-delay="160">
         <h2>Designing the Fine-Tune Cell Annotation Workflow</h2>
         <p class="blog-meta">Research Tools • Computer Vision</p>
         <p>
@@ -101,5 +142,17 @@
       </a>
     </div>
   </footer>
+
+  <button class="scroll-top-btn" aria-label="Scroll to top">
+    <span class="chip-icon">
+      <span class="chip-label">ESP</span>
+    </span>
+  </button>
+
+  <!-- AOS (scroll animations) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Your custom JS (with AOS.init) -->
+  <script src="script.js"></script>
 </body>
 </html>
