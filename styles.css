@@ -1233,6 +1233,21 @@ html.dark-mode textarea:focus-visible {
   outline-offset: 2px;
 }
 
+html.dark-mode .form-interests {
+  background-color: #0f172a;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+html.dark-mode .form-interests legend,
+html.dark-mode .form-interests label {
+  color: #e5e7eb;
+}
+
+html.dark-mode .form-interests input[type="checkbox"] {
+  accent-color: #22c55e;
+}
+
 /* ===========================
    Hero Typewriter / Terminal Style
    =========================== */
