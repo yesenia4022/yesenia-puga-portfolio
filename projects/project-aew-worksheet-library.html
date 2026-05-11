@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MESA AEW Worksheet Library – Project – Yesenia Puga</title>
+
+  <!-- 🔥 CRITICAL: instant dark mode styles -->
+  <style>
+    html.dark-mode,
+    html.dark-mode body {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    html.dark-mode .site-header {
+      background: #020617;
+    }
+
+    html.dark-mode .main-nav a.active {
+      background-color: #22c55e;
+      color: #052e16;
+    }
+  </style>
+
+  <!-- Apply saved theme BEFORE CSS loads -->
+  <script>
+    (function () {
+      const savedTheme = sessionStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../styles.css">
+
+  <!-- AOS styles for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-mark">YP</span>
+      <span class="logo-text">Yesenia Puga</span>
+      <span class="logo-subtitle">Embedded Systems & Robotics</span>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../projects.html" class="active">Projects</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../blog.html">News &amp; Blog</a></li>
+        <li><a href="../opportunities.html">Opportunities</a></li>
+        <li><a href="../contact.html" class="cta-link">Contact</a></li>
+      </ul>
+
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-toggle-track">
+          <span class="theme-icon theme-icon-sun">☀️</span>
+          <span class="theme-icon theme-icon-moon">🌙</span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="project-page">
+    <section class="project-hero">
+      <h1>MESA AEW Worksheet Library</h1>
+      <p class="project-tagline">
+        A full-stack worksheet library built for MESA students and staff to organize,
+        upload, search, report issues, and receive notifications for AEW math worksheets.
+      </p>
+    </section>
+
+    <section class="project-snapshot">
+      <h2>Project Snapshot</h2>
+      <ul>
+        <li>
+          <strong>Role:</strong>
+          Sole Developer and Product Designer
+        </li>
+        <li>
+          <strong>Timeline:</strong>
+          2025 – Present
+        </li>
+        <li>
+          <strong>Tools &amp; Methods:</strong>
+          Next.js, TypeScript, Supabase Auth, Supabase Storage, PostgreSQL,
+          Vercel, Resend email API, shadcn/ui, Tailwind CSS
+        </li>
+        <li>
+          <strong>Skills Demonstrated:</strong>
+          full-stack web development, database design, authentication, storage
+          policies, admin workflows, notification systems, UX design, deployment
+        </li>
+        <li>
+          <strong>Status:</strong>
+          Working web application used to support worksheet access, staff uploads,
+          issue reporting, and student notifications
+        </li>
+      </ul>
+    </section>
+
+    <section class="section project-layout">
+      <div class="project-main">
+        <h2>Project Description</h2>
+        <p>
+          The MESA AEW Worksheet Library is a web application I built to help students
+          access AEW math worksheets more easily and to give staff a cleaner way to
+          upload, manage, and organize worksheet resources. The project started as a
+          practical solution for MESA students who needed a centralized place to find
+          worksheets by course, professor, category, and date.
+        </p>
+
+        <p>
+          The application includes a public worksheet library, staff-only upload tools,
+          worksheet metadata stored in Supabase, PDF storage, issue reporting, and an
+          email notification system that alerts subscribed students when new worksheets
+          are uploaded.
+        </p>
+
+        <h2>Goals</h2>
+        <ul>
+          <li>Create a centralized library for AEW worksheets.</li>
+          <li>Allow students to search and filter worksheets by subject and category.</li>
+          <li>Give staff a secure way to upload and manage PDFs.</li>
+          <li>Support solution files and issue reporting for incorrect or missing solutions.</li>
+          <li>Notify subscribed students when new worksheets become available.</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li><strong>Public worksheet library:</strong> Students can browse worksheets by subject and professor.</li>
+          <li><strong>Staff-only uploads:</strong> Authorized staff can upload PDFs and add metadata through a protected contribute page.</li>
+          <li><strong>Manage panel:</strong> Staff can edit worksheet titles, attach solutions, delete uploads, and review existing records.</li>
+          <li><strong>Report system:</strong> Students can report solution issues or website bugs through a dedicated form.</li>
+          <li><strong>Email notifications:</strong> Students can subscribe to receive updates when new worksheets are posted.</li>
+          <li><strong>Unsubscribe flow:</strong> Students can opt out of notifications through the Help page.</li>
+        </ul>
+
+        <h2>Technical Implementation</h2>
+        <p>
+          I built the application with Next.js using the App Router and TypeScript.
+          Supabase handles authentication, database records, and PDF storage. Worksheet
+          files are stored in a public storage bucket, while metadata is saved in a
+          PostgreSQL table. Staff permissions are controlled through a staff email
+          whitelist and Supabase row-level security policies.
+        </p>
+
+        <p>
+          For notifications, I integrated Resend so that students subscribed to a
+          specific subject or professor can receive an email when a matching worksheet
+          is uploaded. I also added server-side routes for bug reports and notifications
+          so that sensitive API keys stay protected.
+        </p>
+
+        <h2>Tools Used</h2>
+        <ul class="pill-list">
+          <li>Next.js</li>
+          <li>TypeScript</li>
+          <li>Supabase</li>
+          <li>PostgreSQL</li>
+          <li>Vercel</li>
+          <li>Resend</li>
+          <li>Tailwind CSS</li>
+          <li>shadcn/ui</li>
+        </ul>
+
+        <h2>Outcomes</h2>
+        <p>
+          This project produced a working full-stack web app that supports both students
+          and staff. It made worksheet access more organized for students while giving
+          staff a smoother workflow for uploading, editing, and managing academic
+          resources.
+        </p>
+
+        <p>
+          Building this project strengthened my experience with full-stack development,
+          authentication, database-backed applications, file storage, email APIs, and
+          designing tools for real users.
+        </p>
+      </div>
+
+      <aside class="project-sidebar">
+        <div class="image-placeholder no-border">
+          <img
+            src="../images/aew-worksheet-library.png"
+            alt="Screenshot of the MESA AEW Worksheet Library homepage"
+            class="sidebar-image-large"
+          >
+        </div>
+
+        <a href="../projects.html" class="btn secondary full-width">
+          Back to Projects
+        </a>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-left">
+      <p>&copy; 2025 Yesenia Puga. All rights reserved.</p>
+    </div>
+    <div class="footer-center">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/yesenia-puga-8b6a98166"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn">
+        <img src="../images/icon-linkedin.png" alt="">
+      </a>
+
+      <a href="https://github.com/yesenia4022"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub">
+        <img src="../images/icon-github.png" alt="">
+      </a>
+    </div>
+  </footer>
+
+  <!-- AOS (scroll animations) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Your custom JS -->
+  <script src="../script.js"></script>
+</body>
+</html>
