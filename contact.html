@@ -80,8 +80,8 @@
     <section class="page-hero small" data-aos="fade-down" data-aos-duration="800">
       <h1>Contact Me</h1>
       <p>
-        Have a project in mind, a question about current work, or an opportunity to 
-        collaborate? Use the form below to get in touch.
+        Whether it’s a project idea, engineering opportunity, or just a conversation 
+        about hardware, software, or tech, feel free to reach out.
       </p>
     </section>
 
@@ -90,14 +90,19 @@
       <div class="contact-form-wrapper" data-aos="fade-right" data-aos-duration="800">
         <h2>Send a Message</h2>
         <p>
-          Open to roles and collaborations in embedded systems, robotics, and tools 
-          that support research or education.
+          I usually respond to messages related to engineering projects, career 
+          opportunities, portfolio questions, or anything involving embedded systems 
+          and software development.
         </p>
 
         <form
           class="contact-form"
           action="https://formspree.io/f/mvgewpwn"
           method="post"
+          onsubmit="gtag('event', 'contact_form_submit', {
+            event_category: 'engagement',
+            event_label: 'Contact Form'
+          });"
         >
           <!-- Tell Formspree where to send people after success -->
           <input
@@ -119,20 +124,21 @@
           <textarea id="message" name="message" rows="5" required></textarea>
 
           <fieldset class="form-interests">
-            <legend>How can I help?</legend>
+            <legend>Reason for reaching out</legend>
+
             <label>
-              <input type="checkbox" name="reason" value="project">
-              Project inquiry or collaboration
+              <input type="checkbox" name="reason" value="engineering">
+              Engineering project or collaboration
             </label>
 
             <label>
-              <input type="checkbox" name="reason" value="opportunity">
-              Job or internship opportunity
+              <input type="checkbox" name="reason" value="career">
+              Career opportunity
             </label>
 
             <label>
-              <input type="checkbox" name="reason" value="general-question">
-              General questions or requests
+              <input type="checkbox" name="reason" value="question">
+              General question
             </label>
           </fieldset>
 
@@ -156,8 +162,10 @@
           <li><a href="https://github.com/yesenia4022" target="_blank">GitHub</a></li>
         </ul>
 
-        <div class="map-placeholder">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.6922105762496!2d-122.16249922508464!3d37.444375231125136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb3bd316a4c9%3A0xe5d50ec2b9c12052!2sCity%20of%20Palo%20Alto%20City%20Hall!5e0!3m2!1sen!2sus!4v1777654244011!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="contact-note">
+          <p>
+            Best way to reach me is through email or LinkedIn.
+          </p>
         </div>
       </aside>
     </section>
