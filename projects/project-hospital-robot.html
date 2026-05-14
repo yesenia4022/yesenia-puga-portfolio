@@ -78,8 +78,9 @@
   </header>
 
   <main class="project-page">
-    <!-- Project hero -->
-    <section class="project-hero">
+    <section class="project-hero"
+      data-aos="fade-up"
+      data-aos-duration="900">
       <h1>Hospital Sanitation Robot</h1>
       <p class="project-tagline">
         Autonomous robot using multiple ESP32 microcontrollers, thermal sensing,
@@ -87,8 +88,23 @@
       </p>
     </section>
 
+    <!-- Tech stack strip -->
+    <section class="project-tech-strip" data-aos="fade-up" data-aos-delay="80">
+      <span>ESP32</span>
+      <span>ESP32-C3</span>
+      <span>FreeRTOS</span>
+      <span>I2C</span>
+      <span>TCA9548A MUX</span>
+      <span>MLX90640</span>
+      <span>Ultrasonic Sensors</span>
+      <span>Motor Drivers</span>
+    </section>
+
     <!-- Project Snapshot card -->
-    <section class="project-snapshot">
+    <section class="project-snapshot"
+      data-aos="fade-up"
+      data-aos-duration="900"
+      data-aos-delay="100">
       <h2>Project Snapshot</h2>
       <ul>
         <li>
@@ -118,7 +134,9 @@
     </section>
 
     <!-- Main content + sidebar -->
-    <section class="section project-layout">
+    <section class="section project-layout"
+      data-aos="fade-up"
+      data-aos-duration="900">
       <div class="project-main">
         <h2>Project Description</h2>
         <p>
@@ -163,18 +181,6 @@
           staff quantifiable validation instead of guesswork.
         </p>
 
-        <h2>Tools Used</h2>
-        <ul class="pill-list">
-          <li>ESP32</li>
-          <li>ESP32-C3 (camera)</li>
-          <li>FreeRTOS</li>
-          <li>Ultrasonic Sensors</li>
-          <li>H-Bridge Motor Drivers</li>
-          <li>MLX90640 Thermal Camera</li>
-          <li>TCA9548A I2C Multiplexer</li>
-          <li>Mobile App (control &amp; diagnostics)</li>
-        </ul>
-
         <h2>Outcomes</h2>
         <p>
           ASAR successfully navigates controlled test spaces, detects high-priority zones
@@ -188,15 +194,24 @@
         </p>
       </div>
 
-      <aside class="project-sidebar">
-        <div class="image-placeholder no-border">
+      <aside class="project-sidebar"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        data-aos-delay="150">
+        <div class="image-placeholder no-border"
+          data-aos="zoom-in"
+          data-aos-duration="900"
+          data-aos-delay="300">
           <img
             src="../images/hospital-robot.jpg"
             alt="Hospital sanitation robot prototype on a test floor."
           >
         </div>
 
-        <div class="image-placeholder no-border">
+        <div class="image-placeholder no-border"
+          data-aos="zoom-in"
+          data-aos-duration="900"
+          data-aos-delay="200">
           <img
             src="../images/hospital-wiring-diagram.png"
             alt="Block and wiring diagram showing the multi-ESP32 architecture, MUX, sensors, and motors."

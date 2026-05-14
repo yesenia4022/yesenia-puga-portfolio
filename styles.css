@@ -504,6 +504,35 @@ html.dark-mode .theme-icon-moon {
 }
 
 /* ===========================
+   Project Tech Stack Strip
+   =========================== */
+
+.project-tech-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: -0.5rem 0 2rem;
+}
+
+.project-tech-strip span {
+  padding: 0.38rem 0.8rem;
+  border-radius: 999px;
+  background-color: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+html.dark-mode .project-tech-strip span {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.38);
+  color: #7dd3fc;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.08);
+}
+
+/* ===========================
    Pills
    =========================== */
 
@@ -1211,8 +1240,19 @@ html.dark-mode .testimonial {
 }
 
 html.dark-mode .project-snapshot {
-  background: linear-gradient(145deg, #0f172a, #020617);
-  border: 1px solid #1e293b;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 24, 39, 0.98),
+    rgba(15, 23, 42, 0.98)
+  );
+
+  border: 2px solid rgba(56, 189, 248, 0.28);
+
+  box-shadow:
+    0 0 30px rgba(56, 189, 248, 0.12),
+    0 18px 45px rgba(0, 0, 0, 0.6);
+
+  backdrop-filter: blur(6px);
 }
 
 html.dark-mode .project-snapshot h2,
