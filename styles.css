@@ -144,6 +144,18 @@ main {
   border: 1px solid #f97316;
 }
 
+.mobile-nav-toggle {
+  display: none;
+  margin-left: auto;
+  border: 1px solid #f97316;
+  background: transparent;
+  color: #f9fafb;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
 /* Theme toggle button in header */
 .theme-toggle {
   margin-left: 1.5rem;
@@ -365,11 +377,11 @@ html.dark-mode .theme-icon-moon {
 
 .card,
 .blog-post {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  padding: 1.25rem;
-  border: 2px solid #e5e7eb;
-  box-shadow: 0 10px 15px rgba(15, 23, 42, 0.06);
+  background: linear-gradient(135deg, #ffffff, #fffaf5);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  border: 2px solid #fed7aa;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease,
@@ -406,7 +418,19 @@ html.dark-mode .theme-icon-moon {
   letter-spacing: 0.03em;
 
   width: fit-content;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
+
+.card-link-wrapper:hover .project-status {
+  transform: translateY(-1px);
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow: 0 6px 14px rgba(249, 115, 22, 0.12);
+}
+
 
 .card-tag {
   font-size: 0.8rem;
@@ -478,6 +502,41 @@ html.dark-mode .theme-icon-moon {
 .quick-link-box:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.35);
+}
+
+/* ===========================
+   Currently Building
+   =========================== */
+
+.building-card {
+  max-width: 900px;
+  background: linear-gradient(135deg, #ffffff, #fff7ed);
+  border: 2px solid #fed7aa;
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.building-list {
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.building-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.building-list li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: #f97316;
+  font-size: 0.75rem;
 }
 
 /* ===========================
@@ -1168,9 +1227,13 @@ html.dark-mode .card,
 html.dark-mode .blog-post,
 html.dark-mode .quick-link-box,
 html.dark-mode .contact-info {
-  background-color: #020617;
-  border-color: #1e293b;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.82);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.96),
+    rgba(8, 47, 73, 0.45)
+  );
+  border-color: rgba(56, 189, 248, 0.24);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.72);
 }
 
 html.dark-mode .card h3,
@@ -1199,6 +1262,11 @@ html.dark-mode .project-status {
     0 0 14px rgba(56, 189, 248, 0.08);
 }
 
+html.dark-mode .card-link-wrapper:hover .project-status {
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.14);
+}
+
 html.dark-mode .card-link,
 html.dark-mode .contact-info a,
 html.dark-mode a {
@@ -1218,6 +1286,27 @@ html.dark-mode .quick-link-box p,
 html.dark-mode .contact-info p,
 html.dark-mode .contact-info li {
   color: #cbd5e1;
+}
+
+html.dark-mode .building-card {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.96),
+    rgba(8, 47, 73, 0.55)
+  );
+  border: 1px solid rgba(56, 189, 248, 0.32);
+
+  box-shadow:
+    0 0 28px rgba(56, 189, 248, 0.1),
+    0 16px 38px rgba(0, 0, 0, 0.55);
+}
+
+html.dark-mode .building-list li {
+  color: #dbeafe;
+}
+
+html.dark-mode .building-list li::before {
+  color: #7dd3fc;
 }
 
 /* hero badge + tags + pills */
@@ -1409,6 +1498,35 @@ html.dark-mode .code-prompt {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
+  }
+
+  /* Mobile Nav */
+  .mobile-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-nav {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .theme-toggle {
+    margin-left: 0;
   }
 
   .main-nav ul {

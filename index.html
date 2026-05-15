@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yesenia Puga – Embedded Systems Portfolio</title>
 
   <!-- 🔥 CRITICAL: instant dark mode styles -->
@@ -54,6 +55,10 @@
       <span class="logo-text">Yesenia Puga</span>
       <span class="logo-subtitle">Embedded Systems & Robotics</span>
     </div>
+
+    <button class="mobile-nav-toggle" type="button" aria-label="Toggle navigation">
+      ☰
+    </button>
 
     <nav class="main-nav">
       <ul>
@@ -181,35 +186,22 @@
       </div>
     </section>
 
-    <!-- Quick links also fade in slightly -->
-    <section class="section quick-links" data-aos="fade-up" data-aos-offset="120">
-      <header class="section-header">
-        <h2>Quick Links</h2>
-      </header>
-      <div class="quick-link-grid">
-        <a href="projects.html" class="quick-link-box" data-aos="fade-up" data-aos-delay="0">
-          <h3>Projects</h3>
-          <p>View embedded systems, robotics, and software projects.</p>
-        </a>
-        <a href="about.html" class="quick-link-box" data-aos="fade-up" data-aos-delay="80">
-          <h3>About Me</h3>
-          <p>Learn more about background, skills, and interests.</p>
-        </a>
-        <a
-            href="resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="quick-link-box"
-            data-aos="fade-up"
-            data-aos-delay="160"
-            onclick="gtag('event', 'resume_download', {
-              event_category: 'engagement',
-              event_label: 'Resume PDF - Home Quick Link'
-            });"
-          >
-          <h3>Resume</h3>
-          <p>Download a PDF of the current resume.</p>
-        </a>
+    <section class="section currently-building" data-aos="fade-up" data-aos-offset="120">
+      <div class="section-header">
+        <h2>Currently Building</h2>
+        <p>
+          Areas and ideas I’m currently exploring across embedded systems,
+          connected devices, and engineering workflows.
+        </p>
+      </div>
+
+      <div class="building-card">
+        <ul class="building-list">
+          <li>BLE-connected sensor systems and embedded/mobile workflows</li>
+          <li>Low-power ESP32 device design and battery optimization</li>
+          <li>Engineering portfolio refinement and project documentation</li>
+          <li>Experimenting with real-time hardware feedback systems</li>
+        </ul>
       </div>
     </section>
   </main>
