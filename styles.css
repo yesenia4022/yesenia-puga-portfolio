@@ -351,6 +351,30 @@ html.dark-mode .theme-icon-moon {
   font-size: 1rem;
 }
 
+.project-meta-pill {
+  margin-top: 1rem;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 0.55rem 1rem;
+
+  border-radius: 999px;
+
+  background: rgba(249, 115, 22, 0.08);
+  border: 1px solid rgba(249, 115, 22, 0.22);
+
+  color: #c2410c;
+
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.meta-divider {
+  opacity: 0.55;
+}
+
 /* Sections */
 .section {
   padding: 2rem 4%;
@@ -1195,6 +1219,12 @@ html.dark-mode .hero-content p,
 html.dark-mode .blog-post p,
 html.dark-mode .card p {
   color: #cbd5e1;
+}
+
+html.dark-mode .project-meta-pill {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.28);
+  color: #7dd3fc;
 }
 
 /* nav + logo */
