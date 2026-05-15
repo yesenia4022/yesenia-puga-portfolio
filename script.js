@@ -122,4 +122,17 @@ document.addEventListener("DOMContentLoaded", function () {
       applyTheme(isDarkMode() ? "light" : "dark");
     });
   }
+
+  // ---- Mobile Navigation Toggle ----
+  const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+  const mainNav = document.querySelector(".main-nav");
+
+  if (mobileNavToggle && mainNav) {
+    mobileNavToggle.addEventListener("click", () => {
+      mainNav.classList.toggle("open");
+
+      const isOpen = mainNav.classList.contains("open");
+      mobileNavToggle.textContent = isOpen ? "✕" : "☰";
+    });
+  }
 });
